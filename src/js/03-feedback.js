@@ -47,7 +47,7 @@ function onFormSubmit(event) {
 }
 
 
-// берем данные из localStorage и заполняем им импут
+
 function populateInput() {
     // берем данные из localStorage
     const saveDataForm = localStorage.getItem(STORAGE_KEY);
