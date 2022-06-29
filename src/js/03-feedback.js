@@ -1,5 +1,7 @@
 import throttle from 'lodash.throttle';
 
+console.log('hello'); 
+
 const STORAGE_KEY = 'feedback-form-state';
 
 const refs = {
@@ -18,11 +20,10 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 populateInput();
 
-
 function onFormInput(event) {
     // берем value input 
     dataForm[event.target.name] = event.target.value;
-    // console.log(dataForm);
+    console.log(dataForm);
 
     // делаем из обьекта строку
     const dataFormJson = JSON.stringify(dataForm);
@@ -38,12 +39,13 @@ function onFormSubmit(event) {
 
     // очищает форму
     event.currentTarget.reset(); 
-    
-    // при отправке очищает localStorage
-    localStorage.removeItem(STORAGE_KEY); 
 
     //выводи объект с полями email, message и текущими их значениями в консоль
-    console.log(dataForm);
+    const dataFormJson = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    console.log(dataFormJson);
+
+    // при отправке очищает localStorage
+    localStorage.removeItem(STORAGE_KEY);   
 }
 
 
