@@ -35,11 +35,12 @@ function onFormSubmit(event) {
 
 function onFormInput(event) {
     // берем value input 
-    dataForm[event.target.name] = event.target.value;
-
+    dataForm.email = refs.email.value;
+    dataForm.message = refs.textarea.value;
+    
     // делаем из обьекта строку
     const dataFormJson = JSON.stringify(dataForm);
-
+    
     // записываем строку в localStorage
     localStorage.setItem(STORAGE_KEY, dataFormJson);
 }
@@ -47,11 +48,12 @@ function onFormInput(event) {
 function populateInput() {
     // берем данные из localStorage
     const saveDataForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    console.log(saveDataForm);
     
     if (saveDataForm) {
         refs.email.value = saveDataForm.email;
         refs.textarea.value = saveDataForm.message;      
-    };
-    
+    };   
 };
+
 
