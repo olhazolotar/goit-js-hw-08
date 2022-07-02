@@ -30,7 +30,10 @@ function onFormSubmit(event) {
     event.currentTarget.reset(); 
 
     // при отправке очищает localStorage
-    localStorage.removeItem(STORAGE_KEY);   
+    localStorage.removeItem(STORAGE_KEY); 
+    // refs.email.value = '';
+    // refs.textarea.value = '';
+
 }
 
 function onFormInput(event) {
@@ -48,7 +51,7 @@ function onFormInput(event) {
 function populateInput() {
     // берем данные из localStorage
     const saveDataForm = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    console.log(saveDataForm);
+    // console.log(saveDataForm);
     
     if (saveDataForm) {
         refs.email.value = saveDataForm.email;
